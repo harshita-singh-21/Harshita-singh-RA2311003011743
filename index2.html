@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Harshita's Learning Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Welcome to Harshita's Learning Platform</h1>
+  </header>
+  
+  <section class="video-section">
+    <video id="lessonVideo" controls>
+      <source src="viddeo.mp4" type="video/mp4">
+    </video>
+    <p id="progressStatus">Video Progress: Not Completed</p>
+    <br><br> <!-- Added space between sentences -->
+  </section>
+  
+  <section class="quiz-section">
+    <h2 class="quiz-title">Interactive Quizzes</h2>
+    <p>Complete the quiz below:</p>
+    <br> <!-- Adds spacing between sentences -->
+    <div id="quizContainer"></div>
+    <br> <!-- More spacing for clarity -->
+    <button class="submit-btn" onclick="submitAllAnswers()">Submit Answers</button>
+    <br><br>
+    <div id="answerSheet"></div>
+    <p id="totalScore"></p>
+  </section>
+  
+  <script src="app.js"></script>
+</body>
+</html>
