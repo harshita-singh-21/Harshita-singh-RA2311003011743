@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA E-Commerce</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .product { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <h1>Offline E-Commerce PWA</h1>
+    <button onclick="subscribeToNotifications()">Enable Push Notifications</button>
+    <div id="products"></div>
+
+    <script>
+        async function fetchProducts() {
+            try {
+                const response = await fetch('/products');
+                const products = await response.json();
+                document.getElementById('products').innerHTML = products.map(p =>
+                    `<div class="product">${p.name} - $${p.price}</div>`).join('');
+            } catch (error) {
+                console.log("Offline Mode: Showing Cached Products");
+            }
+        }
+
+        // Push Notifications Setup
+        async function subscribeToNotifications() {
+            const registration = await navigator.serviceWorker.ready;
+            const subscription = await registration.pushManager.subscribe({ userVisibleOnly: true });
+            console.log("Push Subscription: ", subscription);
+        }
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(() => console.log('✅ Service Worker Registered'));
+        }
+
+        fetchProducts();
+    </script>
+</body>
+</html>
