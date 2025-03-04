@@ -1,0 +1,44 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #65d9f6, #e48fd5);
+    color: black;
+    text-align: center;
+    padding: 20px;
+  }
+  .header .title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+  }
+  .video-section video {
+    width: 70%;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  .quiz-section .submit-btn {
+    padding: 10px 25px;
+    font-size: 18px;
+    background: #a07bc8;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+  .submit-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+  }
+  button.correct {
+    background-color: #4CAF50;
+    color: white;
+  }
+  button.incorrect {
+    background-color: #f44336;
+    color: white;
+  }
